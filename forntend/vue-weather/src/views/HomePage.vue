@@ -2,15 +2,16 @@ import { search } from "core-js/fn/symbol"
 
 <template>
   <div>
+    <h1>Weather Searching</h1>
     <input type="text" v-model="searchQuery" placeholder="請輸入您的城市" />
     <button @click="searchWeather">Search</button>
 
     <table>
       <thead>
         <tr>
-          <th>Location</th>
-          <th>Temperature</th>
-          <th>Weather</th>
+          <th>位置</th>
+          <th>溫度</th>
+          <th>天氣</th>
         </tr>
       </thead>
       <tbody>
@@ -61,5 +62,35 @@ export default {
 </script>
 
 <style scoped>
-/* Add your custom styles here */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #f5f5f5;
+}
+button {
+  padding: 10px 20px;
+  background-color: #ad783c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #788078;
+}
 </style>
