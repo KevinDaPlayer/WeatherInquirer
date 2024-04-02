@@ -41,20 +41,22 @@ export default {
         .get(`http://localhost:3000/weather?city=${this.searchQuery}`)
         .then((response) => {
           const data = response.data;
+          let result;
           if (data.cod === "200") {
-            const result = {
+            result = {
               location: data.name,
               temperature: data.main.temp,
               weather: data.weather[0].description,
               id: data.id,
             };
           } else {
-            const result = {
+            result = {
               location: "Not Found",
               temperature: "Not Found",
               weather: "Not Found",
             };
           }
+          this.searchResults = [result];
         });
     },
   },
