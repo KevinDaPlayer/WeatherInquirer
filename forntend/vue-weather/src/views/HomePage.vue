@@ -38,11 +38,11 @@ export default {
   methods: {
     searchWeather() {
       axios
-        .get(`http://localhost:3000/weather?city=${this.searchQuery}`)
+        .get(`http://localhost:5000/weather?city=${this.searchQuery}`)
         .then((response) => {
           const data = response.data;
           let result;
-          if (data.cod === "200") {
+          if (data.cod === "200" || data.cod === 200) {
             result = {
               location: data.name,
               temperature: data.main.temp,
@@ -94,5 +94,17 @@ button {
 
 button:hover {
   background-color: #788078;
+}
+
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #ad783c;
 }
 </style>
