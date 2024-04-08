@@ -3,6 +3,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 // import Home from '../views/Home.vue';
 import HomePage from "../views/HomePage.vue";
+import LealeftMap from "../views/LealeftMap.vue";
 
 // Vue.use(VueRouter);
 
@@ -11,6 +12,11 @@ const routes = [
     path: "/",
     name: "HomePage",
     component: HomePage,
+  },
+  {
+    path: "/map",
+    name: "LealeftMap",
+    component: LealeftMap,
   },
 ];
 const router = createRouter({
