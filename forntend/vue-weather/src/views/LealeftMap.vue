@@ -14,7 +14,6 @@
 <script>
 import axios from "axios";
 import L from "leaflet";
-import "leaflet/dist/leaflet.css";
 
 export default {
   name: "LealeftMap",
@@ -41,7 +40,7 @@ export default {
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "© OpenStreetMap contributors",
       }).addTo(this.map);
-      map.on("click", this.onMapClick);
+      this.map.on("click", this.onMapClick);
     },
     onMapClick(e) {
       const { lat, lng } = e.latlng;
@@ -66,3 +65,6 @@ export default {
   },
 };
 </script>
+<style>
+@import "~leaflet/dist/leaflet.css";
+</style>

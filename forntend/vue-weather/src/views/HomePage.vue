@@ -3,6 +3,10 @@ import { search } from "core-js/fn/symbol"
 <template>
   <div>
     <h1>Weather Searching</h1>
+    <nav>
+      <router-link to="/">Home</router-link>
+      <router-link to="/map">Leaflet</router-link>
+    </nav>
     <input type="text" v-model="searchQuery" placeholder="請輸入您的城市" />
     <button @click="searchWeather">Search</button>
 
