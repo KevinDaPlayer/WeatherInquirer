@@ -3,6 +3,7 @@
     <div id="map" style="height: 400px"></div>
     <div>
       <h2>Weather</h2>
+      <p>Location: {{ weather.location }}</p>
       <p>Temperature: {{ weather.temp }}</p>
       <p>Feels Like: {{ weather.feels_like }}</p>
       <p>Min Temperature: {{ weather.temp_min }}</p>
@@ -23,6 +24,7 @@ export default {
       lat: 0,
       lon: 0,
       weather: {
+        location: "",
         temp: 0,
         feels_like: 0,
         temp_min: 0,
@@ -36,7 +38,7 @@ export default {
   },
   methods: {
     initMap() {
-      this.map = L.map("map").setView([51.505, -0.09], 13);
+      this.map = L.map("map").setView([23.6978, 120.9605], 7);
       L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "© OpenStreetMap contributors",
       }).addTo(this.map);
@@ -49,11 +51,12 @@ export default {
       this.fetchWeather();
     },
     fetchWeather() {
-      const url = `http://localhost:5000/weather?lat=${this.lat}&lon=${this.lon}`;
+      const url = `http://localhost:5000/weather-coord?lat=${this.lat}&lon=${this.lon}`;
       axios.get(url).then((response) => {
         console.log(response.data);
         const data = response.data;
         this.weather = {
+          location: data.name,
           temp: data.main.temp,
           feels_like: data.main.feels_like,
           temp_min: data.main.temp_min,
